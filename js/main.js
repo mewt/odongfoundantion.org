@@ -338,10 +338,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     // Active nav link based on current page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'index';
     document.querySelectorAll('.nav-links a').forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        if (href === currentPage || (currentPage === '' && href === '/') || (currentPage === 'index.html' && href === '/')) {
             link.classList.add('active');
         }
     });
@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.rh-donation-btn').forEach(button => {
         button.addEventListener('click', function() {
             // Redirect to contact page donation section
-            window.location.href = 'contact.html#donate';
+            window.location.href = 'contact#donate';
         });
     });
     

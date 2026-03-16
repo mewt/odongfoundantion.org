@@ -73,7 +73,7 @@ function renderPosts(posts) {
             const title = post.title?.rendered || 'Untitled';
             const excerpt = stripHtml(post.excerpt?.rendered || '').substring(0, 130) + '…';
             const date = formatDate(post.date);
-            const link = `blog-post.html?id=${post.id}`;
+            const link = `blog-post?id=${post.id}`;
             const thumbnail = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '';
             const category = post._embedded?.['wp:term']?.[0]?.[0]?.name || 'News';
 

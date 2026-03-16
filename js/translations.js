@@ -517,15 +517,15 @@ function setLanguage(lang) {
 function updateMetaTags(lang) {
     const page = getCurrentPage();
     const metaKeys = {
-        'index.html': ['meta.home.title', 'meta.home.desc'],
-        'about.html': ['meta.about.title', 'meta.about.desc'],
-        'programs.html': ['meta.programs.title', 'meta.programs.desc'],
-        'contact.html': ['meta.contact.title', 'meta.contact.desc'],
-        'blog.html': ['meta.blog.title', 'meta.blog.desc'],
+        'index': ['meta.home.title', 'meta.home.desc'],
+        'about': ['meta.about.title', 'meta.about.desc'],
+        'programs': ['meta.programs.title', 'meta.programs.desc'],
+        'contact': ['meta.contact.title', 'meta.contact.desc'],
+        'blog': ['meta.blog.title', 'meta.blog.desc'],
         '': ['meta.home.title', 'meta.home.desc'] // For root path
     };
     
-    const pageKey = page || 'index.html';
+    const pageKey = page || 'index';
     
     if (metaKeys[pageKey] && translations[lang]) {
         const [titleKey, descKey] = metaKeys[pageKey];
@@ -559,7 +559,7 @@ function updateMetaTags(lang) {
 function getCurrentPage() {
     const path = window.location.pathname;
     const page = path.substring(path.lastIndexOf('/') + 1);
-    return page || 'index.html';
+    return page || 'index';
 }
 
 // ─── Init ─────────────────────────────────────────────────
