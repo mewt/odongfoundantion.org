@@ -1,0 +1,46 @@
+# Development files
+backup/
+test-*
+mock-*
+sessions.txt
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Large files
+*.zip
+*.pdf
+*.png (except img/ folder)
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+._*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# Image cache
+img/foto2/__pycache__/

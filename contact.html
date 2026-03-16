@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title data-i18n="meta.contact.title">Contact ODONG Foundation - Get Involved with Youth Sports Programs</title>
+    <meta name="description" data-i18n="meta.contact.desc" content="Contact ODONG Foundation to support youth sports programs, volunteer, donate, or partner with us. Reach us at Jakarta office or via email/phone.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f74f22',
+                        secondary: '#ffac00',
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'heading': ['Quicksand', 'sans-serif'],
+                        'body': ['Nunito Sans', 'sans-serif'],
+                        'accent': ['Kalam', 'cursive'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Nunito+Sans:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-odong.png" alt="ODONG Foundation Logo">
+                <span>ODONG Foundation</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                 <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                 <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                 <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                  <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+                  <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                  <li><a href="#donate" class="btn-donate" data-i18n="nav.donate">Donate Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header relative py-32 min-h-[400px] flex items-center justify-center">
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <div class="container text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 animate-[slideUp_0.5s_ease-out] drop-shadow-lg" data-i18n="contact.header.title">Contact Us</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto animate-[slideUp_0.5s_ease-out] drop-shadow" style="animation-delay: 0.3s;" data-i18n="contact.header.desc">Get in touch with us - we'd love to hear from you</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 data-i18n="contact.info.title">Get In Touch</h2>
+                    <p data-i18n="contact.info.desc">Have questions about our programs? Want to volunteer or partner with us? Reach out and we'll get back to you as soon as possible.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.address.label">Address</h4>
+                            <p>Jl. Kemang Utara 33 No.3, Lantai 2<br>Kelurahan Bangka, Mampang Prapatan<br>Jakarta Selatan, DKI Jakarta 12730</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.phone.label">Phone</h4>
+                            <p>0822-4772-3858</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.email.label">Email</h4>
+                            <p>yayasan.odong@outlook.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.hours.label">Office Hours</h4>
+                            <p><span data-i18n="contact.hours.weekday">Monday - Friday: 9:00 AM - 5:00 PM</span><br><span data-i18n="contact.hours.weekend">Saturday: 10:00 AM - 2:00 PM</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links-large">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <h2 data-i18n="contact.form.title">Send Us a Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contact.form.name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.form.email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="contact.form.phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-i18n="contact.form.subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" data-i18n="contact.form.subject.placeholder">Select a subject</option>
+                                <option value="general" data-i18n="contact.form.subject.general">General Inquiry</option>
+                                <option value="programs" data-i18n="contact.form.subject.programs">Program Information</option>
+                                <option value="volunteer" data-i18n="contact.form.subject.volunteer">Volunteer Opportunities</option>
+                                <option value="partnership" data-i18n="contact.form.subject.partnership">Partnership</option>
+                                <option value="donation" data-i18n="contact.form.subject.donation">Donation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="contact.form.message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="contact.form.send">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="donation-section" id="donate">
+        <div class="container">
+            <div class="text-center mb-16">
+                  <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4" data-i18n="contact.donate.title">Support Our Cause</h2>
+                  <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-i18n="contact.donate.desc">Your donation helps us continue empowering Indonesian youth through sports</p>
+            </div>
+            
+            <div class="donation-grid">
+                <div class="donation-info">
+                    <h3 data-i18n="contact.donate.why">Why Donate?</h3>
+                    <p data-i18n="contact.donate.why.desc">Your contribution directly supports:</p>
+                    <ul class="donation-list">
+                         <li><i class="fas fa-check"></i> <span data-i18n="contact.donate.d1">Sports equipment and facilities for youth programs</span></li>
+                         <li><i class="fas fa-check"></i> <span data-i18n="contact.donate.d2">Coaching and mentorship for aspiring athletes</span></li>
+                         <li><i class="fas fa-check"></i> <span data-i18n="contact.donate.d3">Leadership training and educational workshops</span></li>
+                         <li><i class="fas fa-check"></i> <span data-i18n="contact.donate.d4">Scholarships for talented students</span></li>
+                         <li><i class="fas fa-check"></i> <span data-i18n="contact.donate.d5">Community outreach programs</span></li>
+                    </ul>
+                    
+                     <div class="donation-impact">
+                         <h4 data-i18n="contact.donate.impact.title">Your Impact</h4>
+                        <div class="impact-grid">
+                            <div class="impact-item">
+                                <span class="impact-amount">Rp 100.000</span>
+                                 <span class="impact-desc" data-i18n="contact.donate.i1.desc">Provides sports equipment for one child</span>
+                            </div>
+                            <div class="impact-item">
+                                <span class="impact-amount">Rp 500.000</span>
+                                 <span class="impact-desc" data-i18n="contact.donate.i2.desc">Sponsors one week of training</span>
+                            </div>
+                            <div class="impact-item">
+                                <span class="impact-amount">Rp 1.000.000</span>
+                                 <span class="impact-desc" data-i18n="contact.donate.i3.desc">Supports a full month of programs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donation-cards">
+                     <h3 data-i18n="contact.donate.bank.title">Bank Transfer</h3>
+                     <p class="donation-subtitle" data-i18n="contact.donate.bank.subtitle">Make a direct bank transfer to our official accounts</p>
+                    
+                    <div class="bank-card">
+                        <div class="bank-header">
+                            <i class="fas fa-university"></i>
+                            <h4>Bank Ganesha</h4>
+                        </div>
+                        <div class="bank-details">
+                            <div class="account-number">
+                                <span class="label">Account Number:</span>
+                                <span class="number" id="acc1">2300131417</span>
+                                <button class="copy-btn" onclick="copyToClipboard('acc1')"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <p class="account-name">a.n ODONG Foundation</p>
+                            <p class="branch">Cabang Mangga Dua</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bank-card">
+                        <div class="bank-header">
+                            <i class="fas fa-university"></i>
+                            <h4>Bank CCB</h4>
+                        </div>
+                        <div class="bank-details">
+                            <div class="account-number">
+                                <span class="label">Account Number:</span>
+                                <span class="number" id="acc2">2004487888</span>
+                                <button class="copy-btn" onclick="copyToClipboard('acc2')"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <p class="account-name">a.n ODONG Foundation</p>
+                            <p class="branch">Cabang Ketapang</p>
+                        </div>
+                    </div>
+                    
+                    <div class="donation-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p data-i18n="contact.donate.note">After making your donation, please send confirmation to <strong>yayasan.odong@outlook.com</strong> with your name, amount, and date of transfer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+             <h2 data-i18n="contact.map.title">Our Location</h2>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5669059054!2d106.8166!3d-6.2615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f17040116667%3A0x6b4b2d6e7c8a5e4!2sJl.%20Kemang%20Utara%20No.33%2C%20Jakarta%20Selatan!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                <img src="img/foto2/Logo Yayasan Odong.png" alt="ODONG Foundation Logo">
+                    <p data-i18n="footer.desc">Empowering Indonesian youth through sports, education, and leadership development.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                        <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.programs">Programs</h4>
+                    <ul>
+                        <li><a href="programs.html#odong-league">Odong League</a></li>
+                        <li><a href="programs.html#mycampus-league">MyCampus League</a></li>
+                        <li><a href="programs.html#leadership-academy">Leadership Academy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contactUs">Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kemang Utara 33 No.3, Jakarta Selatan</p>
+                    <p><i class="fas fa-phone"></i> 0822-4772-3858</p>
+                    <p><i class="fas fa-envelope"></i> yayasan.odong@outlook.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2024 ODONG Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Account number copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+    <script src="js/translations.js"></script>
+</body>
+</html>

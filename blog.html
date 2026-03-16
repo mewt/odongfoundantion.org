@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title data-i18n="meta.blog.title">Blog - ODONG Foundation</title>
+    <meta name="description" data-i18n="meta.blog.desc" content="News, stories, and updates from ODONG Foundation">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f74f22',
+                        secondary: '#ffac00',
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'heading': ['Quicksand', 'sans-serif'],
+                        'body': ['Nunito Sans', 'sans-serif'],
+                        'accent': ['Kalam', 'cursive'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Nunito+Sans:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .blog-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .blog-tag {
+            background: rgba(247, 79, 34, 0.1);
+            color: #f74f22;
+            border-radius: 9999px;
+            padding: 2px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 8px;
+        }
+        @keyframes skeleton-loading {
+            0%   { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .error-state {
+            border: 2px dashed #f74f22;
+            background: rgba(247,79,34,0.04);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-odong.png" alt="ODONG Foundation Logo">
+                <span>ODONG Foundation</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="blog.html" class="active" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="contact.html#donate" class="btn-donate" data-i18n="nav.donate">Donate Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header relative py-32 min-h-[400px] flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <div class="container text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">Blog</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto drop-shadow">News, stories, and updates from ODONG Foundation</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="py-24 bg-gray-50" id="blog-section">
+        <div class="container mx-auto px-4 max-w-7xl">
+
+            <!-- Config notice (shown only when WP URL is not set) -->
+            <div id="wp-config-notice" class="hidden error-state rounded-2xl p-8 text-center mb-12">
+                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-plug text-2xl text-primary"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-3">Connect Your WordPress Site</h3>
+                <p class="text-gray-600 mb-4 max-w-xl mx-auto">
+                    To display blog posts, open <code class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">js/blog.js</code>
+                    and update the <code class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">WP_API_URL</code> constant
+                    with your WordPress site's domain (e.g., <code class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">https://blog.odongfoundation.org</code>).
+                </p>
+                <p class="text-sm text-gray-400">No coding required beyond that — posts will appear automatically once connected.</p>
+            </div>
+
+            <!-- Loading Skeletons -->
+            <div id="blog-loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skeleton cards are generated by JS -->
+            </div>
+
+            <!-- Error state -->
+            <div id="blog-error" class="hidden text-center py-16">
+                <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-exclamation-triangle text-3xl text-red-400"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-dark mb-3">Could Not Load Posts</h3>
+                <p id="blog-error-msg" class="text-gray-500 mb-6">There was a problem connecting to the blog.</p>
+                <button onclick="loadPosts()" class="bg-primary text-white font-bold py-3 px-8 rounded-full hover:bg-dark transition-colors duration-300">
+                    <i class="fas fa-redo mr-2"></i> Try Again
+                </button>
+            </div>
+
+            <!-- Posts grid -->
+            <div id="blog-posts" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+            <!-- Pagination -->
+            <div id="blog-pagination" class="hidden mt-16 flex justify-center gap-4 items-center">
+                <button id="btn-prev" onclick="changePage(-1)" class="flex items-center gap-2 text-primary font-bold hover:text-dark transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <span id="page-info" class="text-gray-500 text-sm font-medium"></span>
+                <button id="btn-next" onclick="changePage(1)" class="flex items-center gap-2 text-primary font-bold hover:text-dark transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Stay In The Loop</h2>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10">Follow our journey and stay updated on how we empower Indonesian youth through sports.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-light" data-i18n="btn.contactUs">Contact Us</a>
+                <a href="contact.html#donate" class="btn btn-outline-light" data-i18n="btn.donateNow">Donate Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="img/foto2/Logo Yayasan Odong.png" alt="ODONG Foundation Logo">
+                    <p data-i18n="footer.desc">Empowering Indonesian youth through sports, education, and leadership development.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                        <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.programs">Programs</h4>
+                    <ul>
+                        <li><a href="programs.html#odong-league">Odong League</a></li>
+                        <li><a href="programs.html#mycampus-league">MyCampus League</a></li>
+                        <li><a href="programs.html#leadership-academy">Leadership Academy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contactUs">Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kemang Utara 33 No.3, Jakarta Selatan</p>
+                    <p><i class="fas fa-phone"></i> 0822-4772-3858</p>
+                    <p><i class="fas fa-envelope"></i> yayasan.odong@outlook.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2024 ODONG Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

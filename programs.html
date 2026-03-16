@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title data-i18n="meta.programs.title">ODONG Foundation Programs - Sports & Esports for Indonesian Youth</title>
+    <meta name="description" data-i18n="meta.programs.desc" content="Explore ODONG Foundation programs: Odong League (FIFA/EA Sports esports), MyCampus League (university sports), and Sport Leadership Academy for youth development.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f74f22',
+                        secondary: '#ffac00',
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'heading': ['Quicksand', 'sans-serif'],
+                        'body': ['Nunito Sans', 'sans-serif'],
+                        'accent': ['Kalam', 'cursive'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Nunito+Sans:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-odong.png" alt="ODONG Foundation Logo">
+                <span>ODONG Foundation</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="programs.html" class="active" data-i18n="nav.programs">Programs</a></li>
+                <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                 <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                 <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                 <li><a href="contact.html#donate" class="btn-donate" data-i18n="nav.donate">Donate Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header relative py-32 min-h-[400px] flex items-center justify-center">
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <div class="container text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 animate-[slideUp_0.5s_ease-out] drop-shadow-lg" data-i18n="programs.header.title">Our Programs</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto animate-[slideUp_0.5s_ease-out] drop-shadow" style="animation-delay: 0.3s;" data-i18n="programs.header.desc">Empowering youth through sports, education, and leadership</p>
+        </div>
+    </section>
+
+    <!-- Odong League Section -->
+    <section class="program-detail py-16" id="odong-league">
+        <div class="container">
+            <div class="program-detail-grid grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="program-detail-content">
+                    <div class="program-badge w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-futbol text-3xl text-primary"></i>
+                    </div>
+                     <h2 class="text-4xl font-bold mb-4 text-dark">Odong League</h2>
+                     <p class="program-subtitle text-xl text-gray-500 mb-6" data-i18n="programs.league.subtitle">Indonesia's Premier Youth Football League</p>
+                     <p class="text-gray-600 mb-4 text-lg" data-i18n="programs.league.p1">Odong League is our flagship football competition that brings together talented young athletes from across Indonesia. The league provides a platform for players to showcase their skills, learn from experienced coaches, and compete at a high level.</p>
+                     <p class="text-gray-600 mb-8 text-lg" data-i18n="programs.league.p2">With multiple participating clubs and teams, Odong League creates an environment where young athletes can develop not only their football abilities but also important life skills such as teamwork, discipline, and sportsmanship.</p>
+                    <ul class="program-features space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.league.f1">Professional league structure</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.league.f2">Experienced coaches and referees</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.league.f3">Regular season and playoffs</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.league.f4">Talent scouting opportunities</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.league.f5">Live streaming of matches</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block">
+                        Join the League
+                    </a>
+                </div>
+                <div class="program-detail-image">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl group">
+                        <img src="img/foto2/Dok Odong League/20240810_135942386_iOS.webp" alt="Odong League Match" class="w-full h-auto group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MyCampus League Section -->
+    <section class="program-detail alt py-16 bg-gray-50" id="mycampus-league">
+        <div class="container">
+            <div class="program-detail-grid grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="program-detail-image order-2 lg:order-1">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl group">
+                        <img src="img/foto2/Dok Mycampus/3 mycampusleague.png" alt="MyCampus League Participants" class="w-full h-auto group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                </div>
+                <div class="program-detail-content order-1 lg:order-2">
+                    <div class="program-badge w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-3xl text-primary"></i>
+                    </div>
+                     <h2 class="text-4xl font-bold mb-4 text-dark">MyCampus League</h2>
+                     <p class="program-subtitle text-xl text-gray-500 mb-6" data-i18n="programs.campus.subtitle">University Sports Competition</p>
+                     <p class="text-gray-600 mb-4 text-lg" data-i18n="programs.campus.p1">MyCampus League is designed for university students who want to continue their athletic journey while pursuing higher education. This program recognizes that academic excellence and athletic achievement go hand in hand.</p>
+                     <p class="text-gray-600 mb-8 text-lg" data-i18n="programs.campus.p2">The league fosters inter-university competition, building camaraderie among students from different institutions while promoting a healthy balance between studies and sports.</p>
+                    <ul class="program-features space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.campus.f1">Multi-sport competition</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.campus.f2">University partnerships</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.campus.f3">Academic support programs</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.campus.f4">Networking opportunities</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i>
+                             <span class="text-gray-700" data-i18n="programs.campus.f5">Scholarship opportunities</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-block">
+                         <span data-i18n="programs.campus.btn">Register Your Campus</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sport Leadership Academy Section -->
+    <section class="program-detail" id="leadership-academy">
+        <div class="container">
+            <div class="program-detail-grid">
+                <div class="program-detail-content">
+                    <div class="program-badge">
+                        <i class="fas fa-users"></i>
+                    </div>
+                     <h2>Sport Leadership Academy</h2>
+                     <p class="program-subtitle" data-i18n="programs.academy.subtitle">Developing Tomorrow's Leaders</p>
+                     <p data-i18n="programs.academy.p1">The Sport Leadership Academy is our comprehensive leadership development program that uses sports as a vehicle to teach essential leadership skills. Participants learn about communication, decision-making, team management, and ethical leadership.</p>
+                     <p data-i18n="programs.academy.p2">Through workshops, mentorship, and practical experience, academy graduates are prepared to become leaders in their communities, whether in sports, business, or social initiatives.</p>
+                    <ul class="program-features">
+                         <li><i class="fas fa-check-circle"></i> <span data-i18n="programs.academy.f1">Leadership workshops</span></li>
+                         <li><i class="fas fa-check-circle"></i> <span data-i18n="programs.academy.f2">One-on-one mentorship</span></li>
+                         <li><i class="fas fa-check-circle"></i> <span data-i18n="programs.academy.f3">Community project management</span></li>
+                         <li><i class="fas fa-check-circle"></i> <span data-i18n="programs.academy.f4">Public speaking training</span></li>
+                         <li><i class="fas fa-check-circle"></i> <span data-i18n="programs.academy.f5">Certification upon completion</span></li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+                <div class="program-detail-image rounded-2xl overflow-hidden shadow-2xl group">
+                    <img src="img/foto2/Dok mini turney/1 kegiatan mei.png" alt="Leadership Academy Activities" class="w-full h-auto group-hover:scale-110 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program CTA -->
+    <section class="program-cta">
+        <div class="container">
+             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="programs.cta.title">Ready to Get Involved?</h2>
+             <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10" data-i18n="programs.cta.desc">Whether you want to join a program, volunteer, or support our mission, we'd love to hear from you.</p>
+             <a href="contact.html" class="btn btn-light" data-i18n="programs.cta.btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                <img src="img/foto2/Logo Yayasan Odong.png" alt="ODONG Foundation Logo">
+                    <p data-i18n="footer.desc">Empowering Indonesian youth through sports, education, and leadership development.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                        <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.programs">Programs</h4>
+                    <ul>
+                        <li><a href="#odong-league">Odong League</a></li>
+                        <li><a href="#mycampus-league">MyCampus League</a></li>
+                        <li><a href="#leadership-academy">Leadership Academy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contactUs">Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kemang Utara 33 No.3, Jakarta Selatan</p>
+                    <p><i class="fas fa-phone"></i> 0822-4772-3858</p>
+                    <p><i class="fas fa-envelope"></i> yayasan.odong@outlook.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2024 ODONG Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/translations.js"></script>
+</body>
+</html>

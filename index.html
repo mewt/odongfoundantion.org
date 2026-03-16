@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title data-i18n="meta.home.title">ODONG Foundation - Empowering Indonesian Youth Through Sports & Esports</title>
+    <meta name="description" data-i18n="meta.home.desc" content="ODONG Foundation empowers Indonesian youth through sports, esports, and leadership programs. Join Odong League (FIFA/EA Sports), MyCampus League, and Sport Leadership Academy.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f74f22',
+                        secondary: '#ffac00',
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'heading': ['Quicksand', 'sans-serif'],
+                        'body': ['Nunito Sans', 'sans-serif'],
+                        'accent': ['Kalam', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Nunito+Sans:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-odong.png" alt="ODONG Foundation Logo">
+                <span>ODONG Foundation</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+                <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                 <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                 <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                 <li><a href="contact.html#donate" class="btn-donate" data-i18n="nav.donate">Donate Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Tailwind Powered -->
+    <header class="relative flex items-center justify-center min-h-[85vh] overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('img/bg/hero BG.png');"></div>
+        <!-- Modern Gradient Overlay -->
+        <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80 backdrop-blur-[2px]"></div>
+        
+        <div class="container relative z-20 text-center px-4 max-w-4xl mx-auto pt-20">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg leading-tight animate-[fadeIn_1s_ease_forwards]" data-i18n="hero.title" data-i18n-html="true">
+                Building Champions,<br><span class="text-primary">Changing Lives</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 drop-shadow-md max-w-2xl mx-auto opacity-0 animate-[fadeIn_1s_ease_forwards]" style="animation-delay: 0.3s;" data-i18n="hero.desc">
+                ODONG Foundation empowers Indonesian youth through sports, education, and leadership development programs.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-[fadeIn_1s_ease_forwards]" style="animation-delay: 0.6s;">
+                <a href="programs.html" class="bg-primary hover:bg-white text-white hover:text-primary font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(247,79,34,0.5)] border-2 border-primary w-full sm:w-auto uppercase tracking-wide" data-i18n="hero.btn.programs">
+                    Our Programs
+                </a>
+                <a href="contact.html#donate" class="bg-transparent hover:bg-secondary text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,172,0,0.3)] border-2 border-white hover:border-secondary w-full sm:w-auto uppercase tracking-wide" data-i18n="hero.btn.support">
+                    Support Us
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white opacity-80 animate-bounce cursor-pointer" onclick="document.querySelector('.about-risehand').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-24 bg-white" id="about">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block font-heading" data-i18n="home.about.tag">About Our Foundation</span>
+                 <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4" data-i18n="home.about.title">Empowering Youth Through Sports</h2>
+                 <p class="text-gray-600 max-w-3xl mx-auto text-lg" data-i18n="home.about.desc">ODONG Foundation is dedicated to nurturing the potential of Indonesian youth through innovative sports and educational programs that build character, leadership, and community.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-heart text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                     <h3 class="text-xl font-bold text-dark mb-4" data-i18n="home.about.mission.title">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="home.about.mission.desc">To empower Indonesian youth through sports-based programs that develop physical, mental, and leadership skills for lifelong success.</p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-eye text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                     <h3 class="text-xl font-bold text-dark mb-4" data-i18n="home.about.vision.title">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="home.about.vision.desc">A future where every young Indonesian has access to quality sports education and opportunities to reach their full potential.</p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-handshake text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                     <h3 class="text-xl font-bold text-dark mb-4" data-i18n="home.about.values.title">Our Values</h3>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="home.about.values.desc">Integrity, teamwork, excellence, and community development guide everything we do at ODONG Foundation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="py-24 bg-gray-50" id="programs">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block font-heading" data-i18n="home.programs.tag">What We Do</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4" data-i18n="home.programs.title">Our Programs</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg" data-i18n="home.programs.desc">Discover how we're making a difference through our various initiatives</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                    <div class="overflow-hidden h-56 relative">
+                        <img src="img/foto2/Dok Odong League/20240810_135942386_iOS.webp" alt="Odong League" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                            <span class="text-white font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100" data-i18n="home.programs.league.badge">Football League</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300">
+                            <i class="fas fa-futbol text-2xl text-primary group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-dark group-hover:text-primary transition-colors duration-300" data-i18n="home.programs.league.title">Odong League</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="home.programs.league.desc">A premier football league that brings together young athletes from across Indonesia to compete, learn, and grow together.</p>
+                        <a href="programs.html#odong-league" class="inline-flex items-center text-primary font-bold hover:text-secondary transition-colors duration-300 group/link uppercase tracking-wide text-sm" data-i18n="btn.learnMore">
+                            Learn More <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-2 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                    <div class="overflow-hidden h-56 relative">
+                        <img src="img/foto2/Dok Mycampus/3 mycampusleague.png" alt="MyCampus League" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                            <span class="text-white font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100" data-i18n="home.programs.campus.badge">University Sports</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300">
+                            <i class="fas fa-graduation-cap text-2xl text-primary group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-dark group-hover:text-primary transition-colors duration-300" data-i18n="home.programs.campus.title">MyCampus League</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="home.programs.campus.desc">University-based sports competition fostering academic excellence alongside athletic achievement.</p>
+                        <a href="programs.html#mycampus-league" class="inline-flex items-center text-primary font-bold hover:text-secondary transition-colors duration-300 group/link uppercase tracking-wide text-sm" data-i18n="btn.learnMore">
+                            Learn More <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-2 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                    <div class="overflow-hidden h-56 relative">
+                        <img src="img/foto2/Dok mini turney/1 kegiatan mei.png" alt="Sport Leadership" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                            <span class="text-white font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100" data-i18n="home.programs.leadership.badge">Mentorship</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300">
+                            <i class="fas fa-users text-2xl text-primary group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-dark group-hover:text-primary transition-colors duration-300" data-i18n="home.programs.leadership.title">Leadership Academy</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="home.programs.leadership.desc">Developing future leaders through comprehensive sports-based leadership training and mentorship programs.</p>
+                        <a href="programs.html#leadership-academy" class="inline-flex items-center text-primary font-bold hover:text-secondary transition-colors duration-300 group/link uppercase tracking-wide text-sm" data-i18n="btn.learnMore">
+                            Learn More <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-2 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+             </div>
+            <div class="text-center">
+                <a href="programs.html" class="inline-block bg-primary hover:bg-dark text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg uppercase tracking-wide" data-i18n="btn.viewAllPrograms">View All Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats Section -->
+    <section class="stats bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
+        <div class="container">
+            <div class="stats-grid grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stat-item text-center group">
+                    <div class="stat-number text-5xl md:text-6xl font-bold text-primary mb-2" data-target="1250">0</div>
+                    <div class="stat-label text-lg font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300" data-i18n="stats.youth">Youth Empowered</div>
+                    <div class="mt-4 w-16 h-1 bg-primary/30 mx-auto group-hover:w-24 transition-all duration-500"></div>
+                </div>
+                <div class="stat-item text-center group">
+                    <div class="stat-number text-5xl md:text-6xl font-bold text-primary mb-2" data-target="75">0</div>
+                    <div class="stat-label text-lg font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300" data-i18n="stats.schools">Partner Schools</div>
+                    <div class="mt-4 w-16 h-1 bg-primary/30 mx-auto group-hover:w-24 transition-all duration-500"></div>
+                </div>
+                <div class="stat-item text-center group">
+                    <div class="stat-number text-5xl md:text-6xl font-bold text-primary mb-2" data-target="180">0</div>
+                    <div class="stat-label text-lg font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300" data-i18n="stats.events">Events Organized</div>
+                    <div class="mt-4 w-16 h-1 bg-primary/30 mx-auto group-hover:w-24 transition-all duration-500"></div>
+                </div>
+                <div class="stat-item text-center group">
+                    <div class="stat-number text-5xl md:text-6xl font-bold text-primary mb-2" data-target="35">0</div>
+                    <div class="stat-label text-lg font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300" data-i18n="stats.cities">Cities Reached</div>
+                    <div class="mt-4 w-16 h-1 bg-primary/30 mx-auto group-hover:w-24 transition-all duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="text-center mb-16">
+                 <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4" data-i18n="home.gallery.title">Our Activities in Action</h2>
+                 <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-i18n="home.gallery.desc">See how we're making a difference through our programs and events</p>
+            </div>
+            <div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="img/foto2/Dok Odong League/20240810_135942386_iOS.webp" alt="Odong League Activity" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="home.gallery.item1.title">Odong League</h3>
+                        <p class="text-white/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="home.gallery.item1.desc">Young athletes competing and learning</p>
+                    </div>
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="img/foto2/Dok Odong League/20240810_165017434_iOS.webp" alt="Odong League Training" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="home.gallery.item2.title">Team Training</h3>
+                        <p class="text-white/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="home.gallery.item2.desc">Building skills and teamwork</p>
+                    </div>
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="img/foto2/Dok Mycampus/3 mycampusleague.png" alt="MyCampus League" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="home.gallery.item3.title">MyCampus League</h3>
+                        <p class="text-white/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="home.gallery.item3.desc">University sports competition</p>
+                    </div>
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="img/foto2/Dok Mycampus/4 mycampusleague.png" alt="MyCampus League Participants" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="home.gallery.item4.title">Campus Champions</h3>
+                        <p class="text-white/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="home.gallery.item4.desc">Student athletes in action</p>
+                    </div>
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="img/foto2/Dok mini turney/1 kegiatan mei.png" alt="Mini Tournament" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="home.gallery.item5.title">Mini Tournaments</h3>
+                        <p class="text-white/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="home.gallery.item5.desc">Community sports events</p>
+                    </div>
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img src="img/foto2/Dok mini turney/2 kegiatan mei.png" alt="Youth Activities" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" data-i18n="home.gallery.item6.title">Youth Development</h3>
+                        <p class="text-white/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="home.gallery.item6.desc">Engaging young participants</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RiseHand-style Donation Section -->
+        <div class="container">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold uppercase tracking-wider text-sm mb-2 block font-accent" data-i18n="home.donate.tag">Support Our Mission</span>
+                 <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4" data-i18n="home.donate.title">Make a Difference Today</h2>
+                 <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="home.donate.desc">Your donation helps us provide sports equipment, training facilities, and educational resources to young athletes across Indonesia.</p>
+            </div>
+            <div class="donation-progress">
+                <div class="rh-progress-info">
+                    <span class="rh-progress-label" data-i18n="home.donate.goal">Annual Fundraising Goal</span>
+                    <span class="rh-progress-value">Rp 250,000,000</span>
+                </div>
+                <div class="rh-progress">
+                    <div class="rh-progress-bar" style="width: 65%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span data-i18n="home.donate.raised">Raised: Rp 162,500,000</span>
+                    <span data-i18n="home.donate.pct">65% Complete</span>
+                </div>
+            </div>
+            <div class="donation-options">
+                <div class="rh-donation-box">
+                     <h3 class="text-dark" data-i18n="home.donate.tier1.title">Support a Young Athlete</h3>
+                    <p data-i18n="home.donate.tier1.desc">Provide one month of training and equipment</p>
+                    <div class="rh-donation-amount">Rp 500,000</div>
+                    <button class="rh-donation-btn" data-i18n="btn.donateNow">Donate Now</button>
+                </div>
+                <div class="rh-donation-box">
+                     <h3 class="text-dark" data-i18n="home.donate.tier2.title">Sponsor a Team</h3>
+                    <p data-i18n="home.donate.tier2.desc">Support an entire team for one season</p>
+                    <div class="rh-donation-amount">Rp 5,000,000</div>
+                    <button class="rh-donation-btn" data-i18n="btn.donateNow">Donate Now</button>
+                </div>
+                <div class="rh-donation-box">
+                     <h3 class="text-dark" data-i18n="home.donate.tier3.title">Build a Facility</h3>
+                    <p data-i18n="home.donate.tier3.desc">Help construct a community sports facility</p>
+                    <div class="rh-donation-amount">Rp 50,000,000</div>
+                    <button class="rh-donation-btn" data-i18n="btn.donateNow">Donate Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="home.cta.title">Join Us in Making a Difference</h2>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10" data-i18n="home.cta.desc">Your support can help us reach more young people and create lasting change in communities across Indonesia.</p>
+            <div class="cta-buttons">
+                <a href="contact.html#donate" class="btn btn-light" data-i18n="btn.donateNow">Donate Now</a>
+                <a href="contact.html" class="btn btn-outline-light" data-i18n="btn.volunteer">Become a Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                <img src="img/foto2/Logo Yayasan Odong.png" alt="ODONG Foundation Logo">
+                    <p data-i18n="footer.desc">Empowering Indonesian youth through sports, education, and leadership development.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                        <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.programs">Programs</h4>
+                    <ul>
+                        <li><a href="programs.html#odong-league">Odong League</a></li>
+                        <li><a href="programs.html#mycampus-league">MyCampus League</a></li>
+                        <li><a href="programs.html#leadership-academy">Leadership Academy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contactUs">Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kemang Utara 33 No.3, Jakarta Selatan</p>
+                    <p><i class="fas fa-phone"></i> 0822-4772-3858</p>
+                    <p><i class="fas fa-envelope"></i> yayasan.odong@outlook.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2024 ODONG Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/translations.js"></script>
+</body>
+</html>

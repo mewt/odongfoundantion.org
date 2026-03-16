@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title data-i18n="meta.about.title">About ODONG Foundation - Empowering Indonesian Youth Through Sports</title>
+    <meta name="description" data-i18n="meta.about.desc" content="Learn about ODONG Foundation's mission to empower Indonesian youth through sports, esports, and leadership development programs since 2020.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f74f22',
+                        secondary: '#ffac00',
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'heading': ['Quicksand', 'sans-serif'],
+                        'body': ['Nunito Sans', 'sans-serif'],
+                        'accent': ['Kalam', 'cursive'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Nunito+Sans:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-odong.png" alt="ODONG Foundation Logo">
+                <span>ODONG Foundation</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                <li><a href="about.html" class="active" data-i18n="nav.about">About Us</a></li>
+                 <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                 <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                 <li><a href="contact.html#donate" class="btn-donate" data-i18n="nav.donate">Donate Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header relative py-32 min-h-[400px] flex items-center justify-center">
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <div class="container text-center relative z-10">
+             <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 animate-[slideUp_0.5s_ease-out] drop-shadow-lg" data-i18n="about.header.title">About Us</h1>
+             <p class="text-xl text-white/90 max-w-2xl mx-auto animate-[slideUp_0.5s_ease-out] drop-shadow" style="animation-delay: 0.3s;" data-i18n="about.header.desc">Learn about our mission, vision, and the people behind ODONG Foundation</p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision py-16">
+        <div class="container">
+            <div class="mv-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="mv-card group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="mv-icon w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-bullseye text-3xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 group-hover:text-primary transition-colors duration-300" data-i18n="about.mission.title">Our Mission</h2>
+                    <p class="text-gray-600 text-lg" data-i18n="about.mission.desc">To empower Indonesian youth through sports programs that build character, develop leadership skills, and create opportunities for personal and community growth.</p>
+                </div>
+                <div class="mv-card group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="mv-icon w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-eye text-3xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 group-hover:text-primary transition-colors duration-300" data-i18n="about.vision.title">Our Vision</h2>
+                    <p class="text-gray-600 text-lg" data-i18n="about.vision.desc">To be a leading force in youth development across Indonesia, creating a generation of confident, skilled, and compassionate leaders who positively impact their communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content py-16">
+        <div class="container">
+            <div class="about-content-grid grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="about-text">
+                    <h2 class="text-4xl font-bold mb-6 text-dark" data-i18n="about.story.title">Our Story</h2>
+                    <p class="text-gray-600 mb-4 text-lg" data-i18n="about.story.p1">ODONG Foundation was founded with a simple yet powerful belief: that every young person in Indonesia deserves the opportunity to reach their full potential.</p>
+                    <p class="text-gray-600 mb-4 text-lg" data-i18n="about.story.p2">Through our various programs including Odong League, MyCampus League, and the Sport Leadership Academy, we have been working tirelessly to create pathways for youth development through sports.</p>
+                    <p class="text-gray-600 mb-8 text-lg" data-i18n="about.story.p3">Our foundation is registered and legally recognized, operating with transparency and accountability in all our endeavors. We partner with schools, universities, communities, and corporations to maximize our impact.</p>
+                    
+                    <h3 class="text-2xl font-bold mb-6 text-dark" data-i18n="about.values.title">Our Values</h3>
+                    <ul class="values-list space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-heart text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-dark" data-i18n="about.value.integrity.title">Integrity:</strong>
+                                <p class="text-gray-600" data-i18n="about.value.integrity.desc">We operate with honesty and transparency</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-hands-helping text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-dark" data-i18n="about.value.collaboration.title">Collaboration:</strong>
+                                <p class="text-gray-600" data-i18n="about.value.collaboration.desc">We believe in the power of partnership</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-star text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-dark" data-i18n="about.value.excellence.title">Excellence:</strong>
+                                <p class="text-gray-600" data-i18n="about.value.excellence.desc">We strive for the highest standards in all we do</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-users text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-dark" data-i18n="about.value.inclusivity.title">Inclusivity:</strong>
+                                <p class="text-gray-600" data-i18n="about.value.inclusivity.desc">We welcome youth from all backgrounds</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-lightbulb text-primary text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-dark" data-i18n="about.value.innovation.title">Innovation:</strong>
+                                <p class="text-gray-600" data-i18n="about.value.innovation.desc">We continuously improve our programs</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-xl overflow-hidden shadow-lg group aspect-[4/3] relative">
+                            <img src="img/foto2/Dok mini turney/2 kegiatan mei.png" alt="ODONG Foundation Team Activities" class="absolute inset-0 !w-full !h-full object-cover group-hover:scale-110 transition-transform duration-700 block">
+                        </div>
+                        <div class="rounded-xl overflow-hidden shadow-lg group aspect-[4/3] relative">
+                            <img src="img/foto2/Dok mini turney/1 kegiatan mei.png" alt="Youth Activities" class="absolute inset-0 !w-full !h-full object-cover group-hover:scale-110 transition-transform duration-700 block">
+                        </div>
+                        <div class="rounded-xl overflow-hidden shadow-lg group aspect-[4/3] relative">
+                            <img src="img/foto2/Dok Mycampus/3 mycampusleague.png" alt="MyCampus League" class="absolute inset-0 !w-full !h-full object-cover group-hover:scale-110 transition-transform duration-700 block">
+                        </div>
+                        <div class="rounded-xl overflow-hidden shadow-lg group aspect-[4/3] relative">
+                            <img src="img/foto2/Dok Mycampus/4 mycampusleague.png" alt="Campus Champions" class="absolute inset-0 !w-full !h-full object-cover group-hover:scale-110 transition-transform duration-700 block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Info Section -->
+    <section class="legal-info">
+        <div class="container">
+            <h2 data-i18n="about.legal.title">Legal Information</h2>
+            <div class="legal-grid">
+                <div class="legal-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h3 data-i18n="about.legal.name.label">Foundation Name</h3>
+                    <p data-i18n="about.legal.name.value">ODONG Foundation</p>
+                </div>
+                <div class="legal-card">
+                    <i class="fas fa-id-card"></i>
+                    <h3 data-i18n="about.legal.status.label">Legal Status</h3>
+                    <p data-i18n="about.legal.status.value">Registered Non-Profit Foundation</p>
+                </div>
+                <div class="legal-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3 data-i18n="about.legal.address.label">Address</h3>
+                    <p>Jl. Kemang Utara 33 No.3, Lantai 2<br>Kelurahan Bangka, Mampang Prapatan<br>Jakarta Selatan, DKI Jakarta 12730</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="text-center mb-16">
+                 <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4" data-i18n="about.team.title">Our Team</h2>
+                 <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-i18n="about.team.desc">Dedicated professionals committed to youth development</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 data-i18n="about.team.board">Foundation Board</h4>
+                    <p data-i18n="about.team.board.role">Leadership &amp; Governance</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 data-i18n="about.team.directors">Program Directors</h4>
+                    <p data-i18n="about.team.directors.role">Program Development</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 data-i18n="about.team.coaches">Coaches &amp; Mentors</h4>
+                    <p data-i18n="about.team.coaches.role">Youth Development</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 data-i18n="about.team.volunteers">Volunteers</h4>
+                    <p data-i18n="about.team.volunteers.role">Community Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <div class="text-center mb-16">
+                 <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4" data-i18n="about.partners.title">Our Partners</h2>
+                 <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-i18n="about.partners.desc">We work with organizations that share our vision</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <i class="fas fa-university"></i>
+                    <span data-i18n="about.partners.edu">Educational Institutions</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-building"></i>
+                    <span data-i18n="about.partners.corp">Corporate Sponsors</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-home"></i>
+                    <span data-i18n="about.partners.community">Community Organizations</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-globe-asia"></i>
+                    <span data-i18n="about.partners.gov">Government Bodies</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="about.cta.title">Want to Learn More?</h2>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10" data-i18n="about.cta.desc">Get in touch with us to discuss partnerships, programs, or any questions you may have.</p>
+            <a href="contact.html" class="btn btn-light" data-i18n="btn.contactUs">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                <img src="img/foto2/Logo Yayasan Odong.png" alt="ODONG Foundation Logo">
+                    <p data-i18n="footer.desc">Empowering Indonesian youth through sports, education, and leadership development.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+                        <li><a href="programs.html" data-i18n="nav.programs">Programs</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.programs">Programs</h4>
+                    <ul>
+                        <li><a href="programs.html#odong-league">Odong League</a></li>
+                        <li><a href="programs.html#mycampus-league">MyCampus League</a></li>
+                        <li><a href="programs.html#leadership-academy">Leadership Academy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contactUs">Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kemang Utara 33 No.3, Jakarta Selatan</p>
+                    <p><i class="fas fa-phone"></i> 0822-4772-3858</p>
+                    <p><i class="fas fa-envelope"></i> yayasan.odong@outlook.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.rights">&copy; 2024 ODONG Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/translations.js"></script>
+</body>
+</html>
