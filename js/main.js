@@ -227,17 +227,27 @@ document.addEventListener('DOMContentLoaded', function() {
        // Initialize stats animation
        initStatsAnimation();
     
-    // CAPTCHA Generation
-    let captchaAnswer = 0;
+    // CAPTCHA Generation - Random Characters
+    let captchaCode = '';
     
     function generateCaptcha() {
-        const num1 = Math.floor(Math.random() * 10) + 1;
-        const num2 = Math.floor(Math.random() * 10) + 1;
-        captchaAnswer = num1 + num2;
+        // Clear old input
+        const captchaInput = document.getElementById('captcha');
+        if (captchaInput) {
+            captchaInput.value = '';
+        }
         
-        const captchaQuestion = document.getElementById('captcha-question');
-        if (captchaQuestion) {
-            captchaQuestion.textContent = `${num1} + ${num2} = ?`;
+        // Generate random 5 character code
+        captchaCode = '';
+        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+        for (let i = 0; i < 5; i++) {
+            captchaCode += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        
+        // Display in captcha element
+        const captchaDisplay = document.getElementById('captcha-question');
+        if (captchaDisplay) {
+            captchaDisplay.textContent = captchaCode;
         }
     }
     
@@ -278,8 +288,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Validate CAPTCHA
-            if (!captchaInput || parseInt(captchaInput) !== captchaAnswer) {
-                showNotification('Jawaban verifikasi salah. Silakan coba lagi.', 'error');
+            if (!captchaInput || captchaInput.toLowerCase() !== captchaCode.toLowerCase()) {
+                showNotification('Kode verifikasi salah. Silakan coba lagi.', 'error');
                 document.getElementById('captcha').value = '';
                 generateCaptcha(); // Generate new CAPTCHA
                 return;
