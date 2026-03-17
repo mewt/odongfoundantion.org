@@ -2,10 +2,13 @@
    ODONG Foundation - Single Blog Post
    =================================== */
 
+console.log('blog-post.js loaded!');
+
 // ─────────────────────────────────────
 //  CONFIG: Same as blog.js
 // ─────────────────────────────────────
-const WP_API_URL = 'http://localhost:3000';
+const WP_API_URL = 'https://blog.odongfoundation.org';
+console.log('WP_API_URL set to:', WP_API_URL);
 
 // ─── Helpers ───────────────────────────────────────────────
 
@@ -161,12 +164,29 @@ function renderPost(post) {
 // ─── Fetch Post ───────────────────────────────────────────
 
 async function loadPost() {
-    // Get post ID from URL query parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
+    console.log('=== loadPost started ===');
+    console.log('Current URL:', window.location.href);
+    console.log('WP_API_URL:', WP_API_URL);
     
-    if (!postId) {
-        showError('No post ID specified in URL');
+    // Show loading state
+    showSection('loading-state');
+    console.log('Loading state shown');
+    
+    // Get post slug from URL path (e.g., /blog-post/hello-world)
+    const pathSegments = window.location.pathname.split('/');
+    console.log('Path segments:', pathSegments);
+    
+    // Filter out empty strings and get the last segment (the slug)
+    const validSegments = pathSegments.filter(s => s.length > 0);
+    console.log('Valid segments:', validSegments);
+    
+    // The slug should be the last segment after 'blog-post'
+    const postSlug = validSegments.length > 1 ? validSegments[validSegments.length - 1] : null;
+    console.log('Extracted slug:', postSlug);
+    
+    if (!postSlug || postSlug === 'blog-post') {
+        console.error('Invalid slug:', postSlug);
+        showError('No post slug specified in URL');
         return;
     }
     
@@ -177,10 +197,31 @@ async function loadPost() {
     }
     
     try {
+        // Fetch post by slug instead of ID
+        const apiUrl = `${WP_API_URL}/wp-json/wp/v2/posts?slug=${postSlug}&_embed`;
+        console.log('Fetching from:', apiUrl);
+        
+        // Add timeout to prevent hanging
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+        
+        console.log('Starting fetch...');
         const response = await fetch(
-            `${WP_API_URL}/wp-json/wp/v2/posts/${postId}?_embed`,
-            { headers: { 'Accept': 'application/json' } }
+            apiUrl,
+            { 
+                method: 'GET',
+                headers: { 
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                mode: 'cors',
+                signal: controller.signal
+            }
         );
+        console.log('Fetch completed');
+        
+        clearTimeout(timeoutId);
+        console.log('Response status:', response.status);
         
         if (!response.ok) {
             if (response.status === 404) {
@@ -189,13 +230,28 @@ async function loadPost() {
             throw new Error(`Server responded with ${response.status}`);
         }
         
-        const post = await response.json();
-        renderPost(post);
+        const posts = await response.json();
+        console.log('Posts received:', posts.length, 'posts');
+        
+        // When fetching by slug, API returns an array
+        if (!posts || posts.length === 0) {
+            throw new Error('Post not found');
+        }
+        
+        console.log('Rendering post:', posts[0].title?.rendered);
+        renderPost(posts[0]);
         
     } catch (err) {
-        console.warn('Blog post fetch error:', err);
-        showError(err.message);
+        if (err.name === 'AbortError') {
+            console.error('Request timed out after 10 seconds');
+            showError('Request timed out. Please check your connection.');
+        } else {
+            console.error('Blog post fetch error:', err);
+            showError(err.message || 'Failed to load post');
+        }
     }
+    
+    console.log('=== loadPost completed ===');
 }
 
 function showError(message) {
@@ -207,4 +263,11 @@ function showError(message) {
 }
 
 // ─── Init ──────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', loadPost);
+console.log('Script loaded, adding DOMContentLoaded listener');
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded fired');
+    loadPost().catch(err => {
+        console.error('Unhandled error in loadPost:', err);
+        showError('Unexpected error: ' + err.message);
+    });
+});

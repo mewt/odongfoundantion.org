@@ -564,8 +564,14 @@ function getCurrentPage() {
 
 // ─── Init ─────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('translations.js DOMContentLoaded fired');
     const navLinks = document.querySelector('.nav-links');
-    if (navLinks && !document.querySelector('.lang-switcher')) {
+    const existingSwitcher = document.querySelector('.lang-switcher');
+    console.log('navLinks found:', !!navLinks);
+    console.log('existing switcher found:', !!existingSwitcher);
+    
+    if (navLinks && !existingSwitcher) {
+        console.log('Creating language switcher...');
         // Find the donate button or its parent li
         const donateLink = navLinks.querySelector('a.btn-donate');
         const donateItem = donateLink ? donateLink.parentElement : null;
@@ -574,11 +580,11 @@ document.addEventListener('DOMContentLoaded', () => {
         switcherLi.className = 'lang-switcher flex items-center border-l border-gray-300 pl-4';
         switcherLi.innerHTML = `
             <button class="lang-btn hover:opacity-80 transition-opacity duration-300 mr-2" data-lang="en" title="English">
-                <img src="img/lang/united-states-of-america.png" alt="English" class="w-6 h-4 rounded-sm">
+                <img src="/img/lang/united-states-of-america.png" alt="English" class="w-6 h-4 rounded-sm">
             </button>
             <span class="text-gray-300 text-sm">|</span>
             <button class="lang-btn hover:opacity-80 transition-opacity duration-300 ml-2" data-lang="id" title="Indonesian">
-                <img src="img/lang/indonesia.png" alt="Indonesian" class="w-6 h-4 rounded-sm">
+                <img src="/img/lang/indonesia.png" alt="Indonesian" class="w-6 h-4 rounded-sm">
             </button>
         `;
         
@@ -587,6 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             navLinks.appendChild(switcherLi);
         }
+        console.log('Language switcher created successfully');
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', e => {
                 e.preventDefault();
