@@ -1377,40 +1377,32 @@ section {
     margin-top: 5px;
 }
 
-/* WhatsApp Button - Enhanced */
+/* WhatsApp Button - Seamless Style */
 .btn-whatsapp {
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    background: var(--primary-color);
     color: var(--white);
     border: none;
-    padding: 18px 35px;
-    font-size: 1.15rem;
-    font-weight: 700;
-    border-radius: 8px;
+    padding: 16px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .btn-whatsapp:hover {
-    background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+    background: var(--dark-color);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-}
-
-.btn-whatsapp:active {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    box-shadow: var(--shadow-hover);
 }
 
 .btn-whatsapp i {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 /* CAPTCHA Styles - Updated */
