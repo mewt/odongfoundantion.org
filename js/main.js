@@ -227,7 +227,24 @@ document.addEventListener('DOMContentLoaded', function() {
        // Initialize stats animation
        initStatsAnimation();
     
-    // Form validation and submission
+    // CAPTCHA Generation
+    let captchaAnswer = 0;
+    
+    function generateCaptcha() {
+        const num1 = Math.floor(Math.random() * 10) + 1;
+        const num2 = Math.floor(Math.random() * 10) + 1;
+        captchaAnswer = num1 + num2;
+        
+        const captchaQuestion = document.getElementById('captcha-question');
+        if (captchaQuestion) {
+            captchaQuestion.textContent = `${num1} + ${num2} = ?`;
+        }
+    }
+    
+    // Generate CAPTCHA on page load
+    generateCaptcha();
+    
+    // Form validation and WhatsApp submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -238,31 +255,56 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const subject = document.getElementById('subject').value;
+            const subjectText = document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text;
             const message = document.getElementById('message').value.trim();
+            const captchaInput = document.getElementById('captcha').value.trim();
             
-            // Validate
-            if (!name || !email || !subject || !message) {
-                showNotification('Please fill in all required fields.', 'error');
+            // Validate all fields
+            if (!name || !email || !phone || !subject || !message) {
+                showNotification('Mohon isi semua field yang wajib diisi.', 'error');
                 return;
             }
             
+            // Validate email
             if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address.', 'error');
+                showNotification('Mohon masukkan alamat email yang valid.', 'error');
                 return;
             }
             
-            // Simulate form submission (replace with actual API call)
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+            // Validate phone (Indonesian format)
+            if (!isValidPhone(phone)) {
+                showNotification('Mohon masukkan nomor WhatsApp yang valid (contoh: 082247723858).', 'error');
+                return;
+            }
             
+            // Validate CAPTCHA
+            if (!captchaInput || parseInt(captchaInput) !== captchaAnswer) {
+                showNotification('Jawaban verifikasi salah. Silakan coba lagi.', 'error');
+                document.getElementById('captcha').value = '';
+                generateCaptcha(); // Generate new CAPTCHA
+                return;
+            }
+            
+            // Build WhatsApp message
+            const waMessage = `*Pesan Baru dari Website ODONG Foundation*%0A%0A` +
+                `*Nama:* ${name}%0A` +
+                `*Email:* ${email}%0A` +
+                `*WhatsApp:* ${phone}%0A` +
+                `*Subjek:* ${subjectText}%0A%0A` +
+                `*Pesan:*%0A${message}`;
+            
+            // Open WhatsApp
+            const waUrl = `https://wa.me/6282247723858?text=${waMessage}`;
+            window.open(waUrl, '_blank');
+            
+            // Show success notification
+            showNotification('Terima kasih! Anda akan diarahkan ke WhatsApp.', 'success');
+            
+            // Reset form and generate new CAPTCHA
             setTimeout(function() {
-                showNotification('Thank you for your message! We will get back to you soon.', 'success');
                 contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
+                generateCaptcha();
+            }, 2000);
         });
     }
     
@@ -270,6 +312,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
+    }
+    
+    // Phone validation (Indonesian format)
+    function isValidPhone(phone) {
+        // Accept: 08xxxxxxxxxx or +628xxxxxxxxxx or 628xxxxxxxxxx
+        const phoneRegex = /^(\+62|62|08)[0-9]{9,12}$/;
+        return phoneRegex.test(phone.replace(/\s|-/g, ''));
     }
     
     // Notification function

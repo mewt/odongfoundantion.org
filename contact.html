@@ -184,8 +184,17 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone" data-i18n="contact.form.phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
+                            <label for="phone" data-i18n="contact.form.phone">Phone Number (WhatsApp)</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Contoh: 082247723858">
+                            <small class="form-hint" data-i18n="contact.form.phone.hint">Format: 08xx-xxxx-xxxx atau +62xxx</small>
+                        </div>
+                        <div class="form-group captcha-group">
+                            <label for="captcha" data-i18n="contact.form.captcha.label">Verifikasi</label>
+                            <div class="captcha-container">
+                                <span id="captcha-question" class="captcha-question"></span>
+                                <input type="number" id="captcha" name="captcha" required placeholder="Jawaban">
+                            </div>
+                            <small class="form-hint" data-i18n="contact.form.captcha.hint">Masukkan jawaban dari pertanyaan di atas</small>
                         </div>
                         <div class="form-group">
                             <label for="subject" data-i18n="contact.form.subject">Subject</label>
@@ -202,7 +211,9 @@
                             <label for="message" data-i18n="contact.form.message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-i18n="contact.form.send">Send Message</button>
+                        <button type="submit" class="btn btn-whatsapp" data-i18n="contact.form.send">
+                            <i class="fab fa-whatsapp"></i> <span>Kirim via WhatsApp</span>
+                        </button>
                     </form>
                 </div>
             </div>

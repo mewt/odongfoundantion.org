@@ -1369,6 +1369,72 @@ section {
     min-height: 140px;
 }
 
+/* Form Hints */
+.form-hint {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--content-light);
+    margin-top: 5px;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+    background: #25D366;
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp i {
+    font-size: 1.3rem;
+}
+
+/* CAPTCHA Styles */
+.captcha-group {
+    background: var(--light-bg);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.captcha-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.captcha-question {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: var(--white);
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    min-width: 100px;
+    text-align: center;
+}
+
+.captcha-container input {
+    flex: 1;
+    max-width: 150px;
+}
+
 /* Donation Section - RiseHand Style */
 .donation-section {
     background: var(--light-bg);
