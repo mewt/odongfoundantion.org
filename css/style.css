@@ -1724,7 +1724,8 @@ section {
     }
 
     .logo span {
-        display: none;
+        display: inline;
+        font-size: 1.1rem;
     }
 
     .stat-number {
