@@ -35,8 +35,8 @@ function updateMetaTags(post) {
     // Update canonical URL
     const canonicalLink = document.getElementById('canonical-url');
     if (canonicalLink) {
-        // Build canonical URL: protocol + domain + current path
-        const canonicalUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+        // Build canonical URL with production domain + current path
+        const canonicalUrl = 'https://odongfoundation.org' + window.location.pathname;
         canonicalLink.href = canonicalUrl;
         console.log('Canonical URL set to:', canonicalUrl);
     }
