@@ -42,5 +42,8 @@ npm-debug.log*
 *.bak
 *.backup
 
-# Image cache
-img/foto2/__pycache__/BLOG_SYSTEM_DOCUMENTATION.md
+# Documentation files
+*.md
+README*
+DOCUMENTATION*
+BLOG_SYSTEM_*
