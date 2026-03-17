@@ -240,7 +240,7 @@ const translations = {
         "footer.quickLinks": "Quick Links",
         "footer.programs": "Programs",
         "footer.contactUs": "Contact Us",
-        "footer.rights": "© ODONG Foundation. All rights reserved."
+        "footer.rights": "© 2026 ODONG Foundation. All rights reserved."
     },
 
     id: {
@@ -479,7 +479,7 @@ const translations = {
         "footer.quickLinks": "Tautan Cepat",
         "footer.programs": "Program",
         "footer.contactUs": "Hubungi Kami",
-        "footer.rights": "© Yayasan ODONG. Hak cipta dilindungi undang-undang."
+        "footer.rights": "© 2026 Yayasan ODONG. Hak cipta dilindungi undang-undang."
     }
 };
 
