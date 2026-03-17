@@ -832,7 +832,63 @@ section {
     margin-top: 3px;
 }
 
+/* Program Partners Section */
+.program-partners {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color);
+}
 
+.program-partners h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--content-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+}
+
+.partner-logos img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.partner-logos img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .partner-logos {
+        gap: 20px;
+    }
+    
+    .partner-logos img {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partner-logos {
+        gap: 15px;
+        justify-content: flex-start;
+    }
+    
+    .partner-logos img {
+        height: 35px;
+    }
+}
 
 .program-cta {
     background: var(--primary-color);
