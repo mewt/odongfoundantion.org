@@ -1695,6 +1695,17 @@ section {
         text-align: center;
     }
 
+    .footer-links h4,
+    .footer-contact h4 {
+        display: inline-block;
+    }
+
+    .footer-links h4::after,
+    .footer-contact h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .social-links,
     .social-links-large {
         justify-content: center;
