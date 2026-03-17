@@ -456,4 +456,20 @@ function throttle(func, limit) {
     };
 }
 
+// Dynamic copyright year
+function updateCopyrightYear() {
+    const currentYear = new Date().getFullYear();
+    const copyrightElements = document.querySelectorAll('[data-i18n="footer.rights"]');
+    copyrightElements.forEach(el => {
+        el.innerHTML = `&copy; ${currentYear} ODONG Foundation. All rights reserved.`;
+    });
+}
+
+// Run on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCopyrightYear);
+} else {
+    updateCopyrightYear();
+}
+
 console.log('ODONG Foundation website loaded successfully!');
