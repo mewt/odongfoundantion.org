@@ -231,13 +231,13 @@ p {
     align-items: center;
     gap: 12px;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--dark-color);
     transition: color 0.3s ease;
 }
 
 .logo img {
-    height: 50px;
+    height: 65px;
     width: auto;
 }
 
@@ -628,7 +628,7 @@ section {
 }
 
 .footer-about img {
-    height: 60px;
+    height: 80px;
     margin-bottom: 25px;
     background: var(--white);
     padding: 10px;
@@ -643,7 +643,7 @@ section {
 }
 
 .footer-logo-text {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--white);
 }
@@ -1877,7 +1877,7 @@ section {
 
     .logo span {
         display: inline;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .stat-number {
