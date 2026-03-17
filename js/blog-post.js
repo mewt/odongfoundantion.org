@@ -32,6 +32,15 @@ function updateMetaTags(post) {
     // Update document title
     document.title = `${title} - ODONG Foundation Blog`;
     
+    // Update canonical URL
+    const canonicalLink = document.getElementById('canonical-url');
+    if (canonicalLink) {
+        // Build canonical URL: protocol + domain + current path
+        const canonicalUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+        canonicalLink.href = canonicalUrl;
+        console.log('Canonical URL set to:', canonicalUrl);
+    }
+    
     // Update meta description
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
