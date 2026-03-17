@@ -90,6 +90,59 @@ function updateMetaTags(post) {
     });
 }
 
+function addStructuredData(post) {
+    // Remove existing structured data if any
+    const existingScript = document.getElementById('blog-post-schema');
+    if (existingScript) {
+        existingScript.remove();
+    }
+    
+    const title = post.title?.rendered || 'Blog Post';
+    const excerpt = stripHtml(post.excerpt?.rendered || '');
+    const content = post.content?.rendered || '';
+    const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '';
+    const author = post._embedded?.author?.[0]?.name || 'ODONG Foundation';
+    const datePublished = post.date;
+    const dateModified = post.modified;
+    const canonicalUrl = 'https://odongfoundation.org' + window.location.pathname;
+    
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": excerpt,
+        "image": featuredImage,
+        "url": canonicalUrl,
+        "datePublished": datePublished,
+        "dateModified": dateModified,
+        "author": {
+            "@type": "Organization",
+            "name": author,
+            "url": "https://odongfoundation.org"
+        },
+        "publisher": {
+            "@type": "NGO",
+            "name": "ODONG Foundation",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://odongfoundation.org/img/logo-odong.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+        }
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'blog-post-schema';
+    script.textContent = JSON.stringify(schemaData, null, 2);
+    document.head.appendChild(script);
+    
+    console.log('BlogPosting structured data added');
+}
+
 function showSection(id) {
     ['loading-state', 'blog-post-content', 'error-state'].forEach(sectionId => {
         const el = document.getElementById(sectionId);
@@ -249,6 +302,7 @@ async function loadPost() {
         
         console.log('Rendering post:', posts[0].title?.rendered);
         renderPost(posts[0]);
+        addStructuredData(posts[0]);
         
     } catch (err) {
         if (err.name === 'AbortError') {
