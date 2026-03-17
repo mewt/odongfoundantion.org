@@ -231,7 +231,7 @@ p {
     align-items: center;
     gap: 12px;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--dark-color);
     transition: color 0.3s ease;
 }
@@ -633,6 +633,19 @@ section {
     background: var(--white);
     padding: 10px;
     border-radius: 5px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
 }
 
 .footer-about p {
@@ -1864,7 +1877,7 @@ section {
 
     .logo span {
         display: inline;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .stat-number {
