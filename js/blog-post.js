@@ -50,6 +50,15 @@ function updateMetaTags(post) {
     }
     metaDesc.content = excerpt.substring(0, 160);
     
+    // Add Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+    }
+    canonical.href = currentUrl;
+    
     // Update Open Graph tags
     const ogTags = {
         'og:title': title,
@@ -323,6 +332,15 @@ function showError(message) {
         errorMsgEl.textContent = message;
     }
     showSection('error-state');
+
+    // Prevent Google from indexing deleted/missing posts
+    let noindexTag = document.querySelector('meta[name="robots"]');
+    if (!noindexTag) {
+        noindexTag = document.createElement('meta');
+        noindexTag.name = 'robots';
+        document.head.appendChild(noindexTag);
+    }
+    noindexTag.content = 'noindex';
 }
 
 // ─── Init ──────────────────────────────────────────────────
