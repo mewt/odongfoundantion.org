@@ -182,7 +182,8 @@
                     </div>
                     <h1 id="post-title" class="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-4 drop-shadow-lg"></h1>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <img id="post-author-img" src="" alt="Author Image" class="w-10 h-10 rounded-full object-cover hidden">
+                        <div id="post-author-icon" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-user text-white"></i>
                         </div>
                         <span id="post-author" class="text-white/90 font-medium"></span>
@@ -196,6 +197,16 @@
             <div class="container mx-auto px-4 max-w-4xl">
                 <div id="post-content" class="blog-content prose prose-lg max-w-none">
                     <!-- Content will be inserted here -->
+                </div>
+
+                <!-- Author Bio Section -->
+                <div id="author-bio-container" class="hidden mt-16 bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col sm:flex-row gap-6 items-center sm:items-start group">
+                    <img id="author-bio-img" src="" alt="Author" class="w-24 h-24 rounded-full object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
+                    <div class="text-center sm:text-left">
+                        <h4 class="text-sm font-bold text-primary uppercase tracking-wider mb-1">Written By</h4>
+                        <h3 class="text-2xl font-bold text-dark mb-3" id="author-bio-name"></h3>
+                        <p class="text-gray-600 leading-relaxed" id="author-bio-desc"></p>
+                    </div>
                 </div>
 
                 <!-- Back to Blog -->

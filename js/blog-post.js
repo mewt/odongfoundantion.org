@@ -181,7 +181,46 @@ function renderPost(post) {
     // Update post info
     document.getElementById('post-title').textContent = post.title?.rendered || 'Untitled';
     document.getElementById('post-date').innerHTML += formatDate(post.date);
-    document.getElementById('post-author').textContent = post._embedded?.author?.[0]?.name || 'ODONG Foundation';
+    
+    // Author Data Fetching
+    const authorData = post._embedded?.author?.[0];
+    const authorName = authorData?.name || 'ODONG Foundation';
+    document.getElementById('post-author').textContent = authorName;
+
+    if (authorData) {
+        // Try to get hi-res avatar, fallback to smaller ones
+        const avatarUrl = authorData.avatar_urls?.['96'] || authorData.avatar_urls?.['48'] || authorData.avatar_urls?.['24'];
+        
+        if (avatarUrl) {
+            // Header Image
+            const imgEl = document.getElementById('post-author-img');
+            const iconEl = document.getElementById('post-author-icon');
+            if (imgEl && iconEl) {
+                imgEl.src = avatarUrl;
+                imgEl.classList.remove('hidden');
+                iconEl.classList.add('hidden');
+            }
+            
+            // Bio Section Image
+            const bioImgEl = document.getElementById('author-bio-img');
+            if (bioImgEl) bioImgEl.src = avatarUrl;
+        }
+        
+        // Populate Bio Section
+        if (authorData.description && authorData.description.trim() !== '') {
+            const bioContainer = document.getElementById('author-bio-container');
+            const bioName = document.getElementById('author-bio-name');
+            const bioDesc = document.getElementById('author-bio-desc');
+            
+            if (bioContainer && bioName && bioDesc) {
+                bioName.textContent = authorName;
+                bioDesc.textContent = authorData.description;
+                bioContainer.classList.remove('hidden');
+                // Ensure flex formatting overrides 'hidden' by Tailwind logic
+                bioContainer.classList.add('flex');
+            }
+        }
+    }
     
     // Update category
     const categoryEl = document.getElementById('post-category');
