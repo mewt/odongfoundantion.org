@@ -7,8 +7,24 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://odongfoundation.org/about">
     <title data-i18n="meta.about.title">About ODONG Foundation - Empowering Indonesian Youth Through Sports</title>
-    <meta name="description" data-i18n="meta.about.desc"
-        content="Learn about ODONG Foundation's mission to empower Indonesian youth through sports, esports, and leadership development programs since 2020.">
+    <meta name="description" data-i18n="meta.about.desc" content="Learn about ODONG Foundation's mission to empower Indonesian youth through sports, esports, and leadership development programs since 2020.">
+    
+    <!-- Structured Data: About Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About ODONG Foundation",
+        "description": "Learn about ODONG Foundation's mission to empower Indonesian youth through sports, esports, and leadership development programs since 2020.",
+        "url": "https://odongfoundation.org/about",
+        "mainEntity": {
+            "@type": "NGO",
+            "name": "ODONG Foundation",
+            "url": "https://odongfoundation.org"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="css/style.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -326,9 +342,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <img src="img/foto2/Logo Yayasan Odong.png" alt="ODONG Foundation Logo">
-                    <p data-i18n="footer.desc">Empowering Indonesian youth through sports, education, and leadership
-                        development.</p>
+                <div class="footer-logo">
+                    <img src="/img/logo/Logo Yayasan Odong Prestasi Indonesia.png" alt="ODONG Foundation Logo">
+                    <span class="footer-logo-text">Odong Foundation</span>
+                </div>
+                    <p data-i18n="footer.desc">Empowering Indonesian youth through sports, education, and leadership development.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/odong.foundation/" target="_blank" rel="noopener"><i
