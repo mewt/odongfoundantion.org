@@ -33,9 +33,10 @@ Incoming mail is outside this stack. The internal outbound relay keeps
 the old server's delivery model; delivery still depends on recipient
 policy and the domain's external SPF/DKIM/DMARC configuration.
 
-Legacy WordOps data and services are retained disabled for rollback.
-Reinstalling Debian is a separate destructive operation; this migration
-uses the existing Ubuntu host and Debian-based application containers.
+Production now runs on a rebuilt Debian 13 host. WordOps and its old host
+nginx/PHP/MariaDB services are absent. Pre-migration Ubuntu/WordOps snapshots
+remain in the operator's private local backups, not on the rebuilt host.
+See DEBIAN13-MIGRATION.txt for the verified bootstrap/restore procedure.
 
 Migration verified 2026-10-23
 - odongfoundation.org: bilingual Next.js frontend, crawler access enabled.
@@ -55,4 +56,16 @@ Migration verified 2026-10-23
 The pre-migration and initial production snapshots were copied to the
 operator's private local backup folder. Continuing daily backups are on
 the VPS; copy them off-host regularly for protection against VPS loss.
-The host remains Ubuntu 22.04; no OS reinstall was performed.
+The checklist above records the initial Ubuntu-to-Docker migration.
+
+Debian restore verified 2026-10-23
+- Provider rebuilt the same VPS as Debian 13; IP and admin key were retained.
+- Restored both WordPress sites, databases, uploads, configs and TLS state.
+- Restored the exact saved application images; PHP 8.3.36 / 8.2.35 verified.
+- All 38 tables passed integrity checks; content table row counts matched.
+- Installed Debian updates and rebooted into 6.12.113+deb13-cloud-amd64.
+- Recreated 4 GiB persistent swap, firewall, key-only SSH and Fail2ban.
+- Confirmed private previews, then all three domains returned HTTPS 200.
+- Mail, WordPress cron and daily backups re-enabled; first backup completed.
+- GitHub's pinned SSH host identity was updated for the rebuilt VPS.
+- Netdata and the old host mailer were not reinstalled; Docker supplies mail.

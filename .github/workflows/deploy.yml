@@ -16,6 +16,11 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Migration script checks
+        run: |
+          bash -n deploy/bootstrap-debian13.sh
+          bash -n deploy/prepare-debian-migration.sh
+          python3 -B -m unittest discover -s deploy -p 'test_migration_backup.py'
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version: '22'

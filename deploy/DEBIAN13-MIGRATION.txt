@@ -1,0 +1,193 @@
+DEBIAN 13 RESTORE KIT
+Validated on the rebuilt production Debian 13 amd64 VPS on 2026-10-23.
+The scripts restore applications and harden an already-installed OS;
+they never wipe disks or invoke a provider reinstall. Rehearse future
+migrations when practical, especially after changing the infrastructure.
+
+Files
+  prepare-debian-migration.sh — run on current VPS; export data and images
+  bootstrap-debian13.sh       — run on NEW Debian 13; restore and harden
+  validate-backup.py          — checksum/archive validation, no writes
+
+The bootstrap does not install Debian itself. Install Debian 13 through
+the VPS provider first. It refuses Ubuntu, non-amd64 hosts, an existing
+/srv/odong, existing containers or an existing web listener. It will not
+overwrite a partial restore: inspect failures before any manual cleanup.
+A second VPS lets the current websites stay live during preparation.
+An in-place wipe includes provider reinstall, transfer and restore time.
+
+1. PREPARE A PRIVATE, OFF-HOST BUNDLE
+
+These commands are examples to run deliberately, not steps already run.
+From the local project directory:
+
+  umask 077
+  ssh-keygen -y -f ~/sshkey/manusiakera.pem > /tmp/odong-admin.pub
+  scp -i ~/sshkey/manusiakera.pem -o HostKeyAlias=103.196.153.233 \
+    deploy/prepare-debian-migration.sh deploy/validate-backup.py \
+    kurohime@ebikeland.id:/tmp/
+  ssh -i ~/sshkey/manusiakera.pem -o HostKeyAlias=103.196.153.233 \
+    kurohime@ebikeland.id \
+    'sudo bash /tmp/prepare-debian-migration.sh /var/backups/odong-debian13-export'
+
+The export directory must not already exist. Ensure the old VPS has room
+for an additional data archive and all compressed images. Export first
+saves the exact running images while the websites stay online, then stops
+WordPress/mail and cron briefly for a consistent database/files snapshot.
+It normally resumes them before hashing. On errors it attempts to resume
+services and removes the COMPLETE marker; inspect service health afterward.
+
+Copy off-host (the bundle contains database credentials and certificate keys):
+
+  ssh -i ~/sshkey/manusiakera.pem -o HostKeyAlias=103.196.153.233 \
+    kurohime@ebikeland.id \
+    'sudo tar -C /var/backups/odong-debian13-export -cf - .' \
+    > backup/debian13-export.tar
+  mkdir -p backup/debian13-export
+  tar -xf backup/debian13-export.tar -C backup/debian13-export
+  python3 deploy/validate-backup.py backup/debian13-export
+
+Keep this directory and the original snapshots on the local computer or
+another protected off-host location. A COMPLETE marker on the old VPS is
+not protection against wiping that VPS. Checksums detect corruption, not
+malicious replacement: use only backups obtained from your trusted host.
+The archive validator deliberately rejects symbolic/hard links and device
+nodes. If a future legitimate backup includes links, inspect them rather
+than bypassing validation.
+
+2. RESTORE ON A FRESH DEBIAN 13 AMD64 HOST
+
+Keep the provider console available. Confirm the new SSH host fingerprint
+through that console, especially if reusing the old IP. Do not disable
+SSH host-key checking to get around a fingerprint change.
+NEW_VPS_IP below is a placeholder. Adapt the initial root login to your
+provider's provisioning method; do not upload the personal private key.
+
+  scp deploy/bootstrap-debian13.sh deploy/validate-backup.py \
+    /tmp/odong-admin.pub root@NEW_VPS_IP:/root/
+  scp -r backup/debian13-export root@NEW_VPS_IP:/root/odong-bundle
+
+On the new host, install Python if the minimal OS image lacks it:
+
+  apt-get update
+  apt-get install -y python3
+  bash /root/bootstrap-debian13.sh restore \
+    --backup /root/odong-bundle \
+    --admin-key /root/odong-admin.pub \
+    --deploy-key /root/odong-bundle/deploy.pub
+
+The export includes the existing deployment PUBLIC key; GitHub keeps the
+matching private key. No deployment private key is needed on this host.
+Default admin username is kurohime; override with --admin-user if needed.
+The kit uses the source commit and exact running images saved in the bundle.
+It requires network access for Debian/Docker packages and the Git checkout,
+but the full bundle avoids app image downloads/builds and GHCR credentials.
+
+An older production/daily backup can be used without an image bundle:
+provide --source-ref with its full 40-character Git commit and a separate
+deployment public key. This path downloads images and builds WordPress/mail.
+If GHCR is private, run docker login ghcr.io as root first. The newer export
+bundle is preferable for reducing downtime and preserving exact images.
+
+What restore does
+- Verifies hashes, archive structure, required files and source reference.
+- Installs updates, official Docker Engine and Compose on Debian 13.
+- Installs the admin public key and passwordless sudo for that admin.
+- Disables SSH root/password/keyboard-interactive login, requires public
+  keys, validates effective SSH configuration and reloads SSH.
+- Enables UFW (SSH rate limit, HTTP/HTTPS), Fail2ban, automatic Debian
+  security updates without automatic reboots, and persistent 4 GiB swap.
+- Restores WordPress files, private configs, Caddy certificates and mail
+  queue. Recreates database users/grants and imports both application DBs.
+- Checks database integrity and rejects PHP below the PHP2Shell fixed
+  versions (blog 8.3.36, eBike 8.2.35).
+- Installs the restricted GitHub deployment gate and backup/cron services.
+- Starts a private preview at 127.0.0.1:18080; no public Docker ports yet.
+- Leaves outbound mail and backup/WordPress cron timers stopped for staging.
+
+Open a NEW SSH connection as kurohime with the personal key and confirm
+sudo works before closing the original root session. The script can check
+configuration and installed keys; it cannot prove connectivity from your
+computer or compatibility with your provider's external firewall.
+
+Inspect private preview from the new host:
+  curl -H 'Host: odongfoundation.org' http://127.0.0.1:18080/
+  curl -H 'Host: blog.odongfoundation.org' http://127.0.0.1:18080/wp-json/
+  curl -H 'Host: ebikeland.id' http://127.0.0.1:18080/
+If package updates require a reboot, reboot and retest before activation.
+
+3. FINAL DATA AND TRAFFIC CUTOVER
+
+A rehearsal snapshot becomes stale if the old WordPress sites keep taking
+writes. For final export, use a NEW output directory and --keep-stopped:
+
+  sudo bash /tmp/prepare-debian-migration.sh \
+    /var/backups/odong-debian13-final --keep-stopped
+
+On successful export this keeps old WordPress/mail/cron stopped, preserving
+the snapshot boundary. The old public WordPress sites will be unavailable
+until cutover; coordinate this as the maintenance window. On export failure
+the helper attempts to resume them. The Next.js site may still serve cached
+pages. If abandoning cutover, deliberately start blog/ebike/mail and the
+odong-wordpress-cron.timer again using the existing production compose file.
+
+This kit does NOT apply a new snapshot to an already restored target. The
+fresh-host guard intentionally prevents overwriting an existing database.
+Use the final bundle for the actual fresh restore; a second-host rehearsal
+and final incremental sync require a separately reviewed cutover procedure.
+It therefore does not promise near-zero downtime for an existing staged host.
+
+Pause GitHub deployment before cutover (DEPLOY_ENABLED=false). Arrange DNS
+or a movable IP to point at the new VPS, accounting for DNS caches. Prevent
+two writable WordPress copies or duplicate cron/mail processing. Keep old
+data available for rollback. On the NEW host, activate deliberately:
+
+  sudo bash /root/bootstrap-debian13.sh activate
+
+Activation opens ports 80/443, verifies TLS for all three domains against
+the local edge, starts outbound mail, enables cron/backup timers, and runs
+a first backup. Restored valid certificates avoid waiting for fresh issuance;
+if issuance is needed, public DNS must resolve to this host for ACME.
+Activation checks local routing with real domain names, not global DNS
+propagation. Verify public HTTPS, both www redirects, CMS/login, content,
+new uploads and frontend blog fetches from outside the VPS afterward.
+
+4. RECONNECT GITHUB ACTIONS
+
+Set VPS_HOST to the new address. Replace VPS_KNOWN_HOSTS with the new host
+key AFTER comparing its fingerprint with the provider console. Keep the
+existing VPS_DEPLOY_KEY when using the exported deployment public key.
+Re-enable DEPLOY_ENABLED=true and run the deployment workflow to verify.
+The bootstrap does not change GitHub secrets or DNS automatically.
+
+5. LIMITS / MAINTENANCE
+
+The scripts are not a forensic malware scan and do not guarantee immunity
+from breaches. Existing saved images preserve their original patch level;
+the PHP minimum check covers the two known PHP2Shell vulnerabilities only.
+Maintain WordPress/plugins/themes and container images separately. Host
+automatic updates do not rebuild application images. eBike PHP 8.2 needs
+a tested branch upgrade before upstream support ends on 2026-12-31.
+Daily backups remain on the VPS; arrange ongoing off-host copies.
+Confirm real outbound email delivery and relevant DNS authentication.
+The firewall assumes a fresh host; Docker-published ports can bypass UFW,
+so the compose file deliberately publishes only Caddy's ports.
+
+Validation: shell syntax, ShellCheck, 11 backup validator tests, and checksum
+validation of the real production backup locally and after upload.
+The kit was then used to restore the actual fresh Debian 13 production VPS.
+All 38 database tables passed integrity checks. 37 table row counts matched
+the snapshot exactly; the security log gained one notification debug event
+after startup. Both WordPress sites and Next.js passed private preview and
+external HTTPS checks. The host rebooted successfully into the updated
+kernel with persistent swap and containers, then activation completed and
+the first scheduled-backup service ran successfully.
+The live restore caught two fixes now included in the script: permit new
+kernel dependencies during apt upgrade, and pass --databases to mariadb-check
+when checking both databases. Infrastructure differences can still require
+operator intervention; no exact restore duration is guaranteed.
+
+Sources
+https://docs.docker.com/engine/install/debian/
+https://www.debian.org/releases/trixie/
+https://www.php.net/archive/2026.php#2026-10-21-5
