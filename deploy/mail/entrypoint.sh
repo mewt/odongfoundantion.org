@@ -1,7 +1,6 @@
 #!/bin/sh
 set -eu
 chmod 755 /var/spool/postfix
-postfix set-permissions
 postconf -e 'myhostname=ebikeland.id' 'myorigin=ebikeland.id' \
   'mydestination=localhost' 'inet_interfaces=all' 'inet_protocols=ipv4' \
   'mynetworks=127.0.0.0/8 10.89.10.0/24' \
