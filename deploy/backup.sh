@@ -7,7 +7,7 @@ backup_dir=/var/backups/odong/daily-$(date -u +%Y%m%dT%H%M%SZ)
 mkdir -p "$backup_dir"
 compose=(docker compose --env-file /srv/odong/stack.env -f /srv/odong/source/deploy/compose.yaml)
 "${compose[@]}" exec -T db sh -c 'MYSQL_PWD="$(cat /run/secrets/db-root)" exec mariadb-dump -uroot --single-transaction --quick --routines --events --triggers --hex-blob --databases ebikeland_id_nUSaT4X2 blog_odongfoundation_org_glCvkKVT' | gzip > "$backup_dir/databases.sql.gz"
-tar -czf "$backup_dir/runtime.tar.gz" -C /srv/odong sites secrets caddy-data caddy-config stack.env source/deploy 2> "$backup_dir/tar-notes.txt" || {
+tar -czf "$backup_dir/runtime.tar.gz" -C /srv/odong sites secrets mail caddy-data caddy-config stack.env source/deploy 2> "$backup_dir/tar-notes.txt" || {
   tar_status=$?
   # GNU tar exit 1 means a file changed during the live archive; keep the
   # warning with the snapshot. Any actual read/write error fails the job.

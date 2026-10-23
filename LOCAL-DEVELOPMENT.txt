@@ -34,6 +34,8 @@ Validation:
   npm run test  (local server running; Chrome installed)
   npm run build
 
-This work is local only. The VPS, WordPress installations and existing
-deployment configuration have not been replaced. The legacy HTML, CSS
-and JavaScript remain in the repository as migration references.
+Production is deployed through .github/workflows/deploy.yml. Pushes to
+main run checks, build an immutable container image, and deploy Odong
+through the VPS's restricted deployment account. See deploy/OPERATIONS.txt.
+WordPress remains the CMS, and ebikeland.id also runs on WordPress in Docker.
+The legacy HTML, CSS and JavaScript remain as migration references.

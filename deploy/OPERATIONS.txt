@@ -36,3 +36,23 @@ policy and the domain's external SPF/DKIM/DMARC configuration.
 Legacy WordOps data and services are retained disabled for rollback.
 Reinstalling Debian is a separate destructive operation; this migration
 uses the existing Ubuntu host and Debian-based application containers.
+
+Migration verified 2026-10-23
+- odongfoundation.org: bilingual Next.js frontend, crawler access enabled.
+- blog.odongfoundation.org: restored WordPress CMS and eight published posts.
+- ebikeland.id: restored WordPress site, existing content and logins retained.
+- All 38 source/destination database table row counts matched at cutover.
+- All restored tables passed integrity checks.
+- External HTTPS and canonical www redirects verified.
+- Firewall permits SSH and HTTPS/HTTP only; private/admin ports verified closed.
+- SSH password/root login disabled, Fail2Ban enabled, Netdata bound to localhost.
+- 4 GiB swap enabled persistently with swappiness 10.
+- Ubuntu unattended security update check found no eligible updates pending.
+- WordOps nginx/PHP/MariaDB services and the unused host mailer are disabled.
+- GitHub checks, image publication and restricted SSH deployment passed.
+- Daily verified backup and one-minute WordPress cron timers are active.
+
+The pre-migration and initial production snapshots were copied to the
+operator's private local backup folder. Continuing daily backups are on
+the VPS; copy them off-host regularly for protection against VPS loss.
+The host remains Ubuntu 22.04; no OS reinstall was performed.
