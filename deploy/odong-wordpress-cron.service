@@ -1,0 +1,8 @@
+[Unit]
+Description=Run due WordPress jobs in Docker
+After=docker.service
+Requires=docker.service
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/odong-wordpress-cron
+TimeoutStartSec=120

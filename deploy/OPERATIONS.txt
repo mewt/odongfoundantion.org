@@ -19,6 +19,13 @@ Rollback: restore /srv/odong/stack.env.previous to /srv/odong/stack.env and
 Infrastructure changes require separate review and explicit host rollout;
 routine frontend commits update only the odong service.
 
+odong-backup.timer produces verified daily SQL and runtime archives in
+/var/backups/odong, retaining seven completed snapshots. Private backups
+contain credentials and must never be committed or placed in a web root.
+The pre-migration backup is also copied to the operator's local machine.
+odong-wordpress-cron.timer runs due jobs every minute; request-triggered
+WordPress cron is disabled to avoid duplicated execution.
+
 WordPress remains at ebikeland.id and blog.odongfoundation.org. PHP 8.2
 and 8.3 are retained respectively. Database users have separate database
 grants. The database and mail relay have no published host ports.
