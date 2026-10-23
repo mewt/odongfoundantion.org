@@ -1,0 +1,31 @@
+Production stack and GitHub delivery
+
+GitHub Actions checks main, builds a Linux/amd64 image in GHCR, then sends
+its immutable digest to the VPS. DEPLOY_ENABLED must be true. VPS_HOST,
+VPS_DEPLOY_KEY and VPS_KNOWN_HOSTS are configured in GitHub settings.
+The dedicated SSH key accepts only validated deployment commands. It
+cannot open a shell, forward ports, or alter WordPress databases/uploads.
+The registry token is short lived and discarded after pulling the image.
+
+The VPS stores source in /srv/odong/source and private runtime state in
+/srv/odong/{sites,database,secrets,mail,caddy-data,caddy-config}. Credentials
+are generated on the VPS and never committed. /srv/odong/stack.env holds
+the selected application image and edge bindings.
+
+Inspect: sudo docker compose --env-file /srv/odong/stack.env
+  -f /srv/odong/source/deploy/compose.yaml ps
+Rollback: restore /srv/odong/stack.env.previous to /srv/odong/stack.env and
+  run the same compose command with up -d --no-deps --wait odong.
+Infrastructure changes require separate review and explicit host rollout;
+routine frontend commits update only the odong service.
+
+WordPress remains at ebikeland.id and blog.odongfoundation.org. PHP 8.2
+and 8.3 are retained respectively. Database users have separate database
+grants. The database and mail relay have no published host ports.
+Incoming mail is outside this stack. The internal outbound relay keeps
+the old server's delivery model; delivery still depends on recipient
+policy and the domain's external SPF/DKIM/DMARC configuration.
+
+Legacy WordOps data and services are retained disabled for rollback.
+Reinstalling Debian is a separate destructive operation; this migration
+uses the existing Ubuntu host and Debian-based application containers.

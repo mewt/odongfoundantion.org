@@ -1,0 +1,25 @@
+(security) {
+  encode zstd gzip
+  header {
+    -Server
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+    X-Frame-Options SAMEORIGIN
+    Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  }
+}
+(wordpress) {
+  import security
+  @private path /wp-config.php /readme.html /license.txt /xmlrpc.php /wp-admin/install.php /wp-content/updraft/* /wp-content/debug.log /wp-content/uploads/ithemes-security/*
+  respond @private 404
+  @hidden {
+    path_regexp hidden (^|/)\.
+    not path /.well-known/*
+  }
+  respond @hidden 404
+  @upload_php path_regexp upload_php (?i)^/wp-content/uploads/.*\.(php[0-9]?|phtml|phar)(/|$)
+  respond @upload_php 404
+  request_body {
+    max_size 64MB
+  }
+}

@@ -1,0 +1,29 @@
+{
+  auto_https off
+  admin localhost:2019
+}
+import /etc/caddy/common
+:80 {
+  @odong host odongfoundation.org www.odongfoundation.org
+  handle @odong {
+    import security
+    reverse_proxy odong:3000
+  }
+  @ebike host ebikeland.id www.ebikeland.id
+  handle @ebike {
+    import wordpress
+    reverse_proxy ebike:80 {
+      header_up X-Forwarded-Proto https
+    }
+  }
+  @blog host blog.odongfoundation.org
+  handle @blog {
+    import wordpress
+    reverse_proxy blog:80 {
+      header_up X-Forwarded-Proto https
+    }
+  }
+  handle {
+    respond "Unknown host" 404
+  }
+}

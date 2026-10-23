@@ -1,0 +1,39 @@
+Odong Foundation local Next.js frontend
+
+Run with Node.js 22 or newer:
+  npm ci
+  npm run dev
+Open http://127.0.0.1:3000 (Indonesian: /id).
+Docker is not required for this local preview.
+
+Content:
+- content/en.json and content/id.json: page copy.
+- content/site.ts: contact details, bank accounts, programs and partners.
+- content/photos.json: Unsplash esports photos and photographer credits.
+- public/img: Odong event photos and logos.
+- WordPress at https://blog.odongfoundation.org remains the blog CMS.
+  Published articles are fetched on the server; production pages refresh
+  through Next.js caching with a 60-second revalidation interval.
+
+The hero rotates esports backgrounds every 6.5 seconds while its text
+and buttons stay fixed. Pause and image controls are available; automatic
+rotation is disabled when the visitor prefers reduced motion.
+The hero includes an SVG notebook grid with a moving amber highlight.
+It shares the pause control and suspends offscreen or in hidden tabs.
+Reduced motion keeps the grid static. No WebGL or 3D library is needed.
+
+Configuration defaults are documented in .env.example. Crawling and page
+indexing are enabled by default for search engines and AI crawlers, with
+the sitemap listed in robots.txt. Set ALLOW_INDEXING=false only for private
+staging builds, then rebuild. This does not expose the localhost server.
+Selected Unsplash URLs are public; no Unsplash credentials are stored
+in the app or needed to run it. Keep photo credits and attribution links.
+
+Validation:
+  npm run check
+  npm run test  (local server running; Chrome installed)
+  npm run build
+
+This work is local only. The VPS, WordPress installations and existing
+deployment configuration have not been replaced. The legacy HTML, CSS
+and JavaScript remain in the repository as migration references.

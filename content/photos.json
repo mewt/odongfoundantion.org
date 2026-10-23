@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "id": "ryRU-cd1yas",
+    "url": "https://images.unsplash.com/photo-1558008258-7ff8888b42b0?ixid=M3wxMTEwNDY5fDB8MXxzZWFyY2h8NHx8ZXNwb3J0cyUyMHRlYW0lMjBnYW1pbmd8ZW58MXwwfHx8MTc5MjY5MTgzOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2200&q=85",
+    "alt": "Players competing with controllers at an esports tournament",
+    "photographer": "Stem List",
+    "profile": "https://unsplash.com/@stemlist?utm_source=odong_foundation&utm_medium=referral",
+    "page": "https://unsplash.com/photos/group-of-people-playing-online-games-ryRU-cd1yas?utm_source=odong_foundation&utm_medium=referral"
+  },
+  "heroTeam": {
+    "id": "HVYepJYeHdQ",
+    "url": "https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixid=M3wxMTEwNDY5fDB8MXxzZWFyY2h8Nnx8ZXNwb3J0cyUyMHRlYW0lMjBnYW1pbmd8ZW58MXwwfHx8MTc5MjY5MTgzOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2200&q=85",
+    "alt": "Players wearing headsets at a row of gaming computers",
+    "photographer": "Fredrick Tendong",
+    "profile": "https://unsplash.com/@frdx?utm_source=odong_foundation&utm_medium=referral",
+    "page": "https://unsplash.com/photos/man-playing-on-laptop-HVYepJYeHdQ?utm_source=odong_foundation&utm_medium=referral"
+  },
+  "heroArena": {
+    "id": "fK5Oomnc-Wk",
+    "url": "https://images.unsplash.com/photo-1633545491399-54a16aa6a871?ixid=M3wxMTEwNDY5fDB8MXxzZWFyY2h8N3x8ZXNwb3J0cyUyMHRlYW0lMjBnYW1pbmd8ZW58MXwwfHx8MTc5MjY5MTgzOXww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2200&q=85",
+    "alt": "An esports gaming room with rows of PCs and purple lighting",
+    "photographer": "ELLA DON",
+    "profile": "https://unsplash.com/@elladon?utm_source=odong_foundation&utm_medium=referral",
+    "page": "https://unsplash.com/photos/a-group-of-people-playing-a-video-game-fK5Oomnc-Wk?utm_source=odong_foundation&utm_medium=referral"
+  }
+}

@@ -1,0 +1,113 @@
+name: odong
+x-common: &common
+  restart: unless-stopped
+  security_opt: [no-new-privileges:true]
+  logging:
+    driver: json-file
+    options: { max-size: 10m, max-file: "3" }
+services:
+  edge:
+    <<: *common
+    image: caddy:2.11.7-alpine
+    user: "1000:1000"
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    mem_limit: 128m
+    pids_limit: 100
+    ports:
+      - "${HTTP_BIND:-127.0.0.1:18080}:80"
+      - "${HTTPS_BIND:-127.0.0.1:18443}:443"
+    volumes:
+      - ${CADDY_CONFIG:-./Caddyfile.preview}:/etc/caddy/Caddyfile:ro
+      - ./Caddyfile.common:/etc/caddy/common:ro
+      - /srv/odong/caddy-data:/data
+      - /srv/odong/caddy-config:/config
+    networks: [web]
+  odong:
+    <<: *common
+    image: ${ODONG_IMAGE:-odong-next:latest}
+    build: { context: .. }
+    cap_drop: [ALL]
+    mem_limit: 512m
+    pids_limit: 100
+    environment:
+      SITE_URL: https://odongfoundation.org
+      WORDPRESS_URL: https://blog.odongfoundation.org
+      ALLOW_INDEXING: "true"
+      NODE_OPTIONS: --max-old-space-size=320
+      MALLOC_ARENA_MAX: "2"
+    networks: [web]
+  ebike:
+    <<: *common
+    image: odong-wordpress:php82
+    build:
+      context: ./wordpress
+      args: { PHP_VERSION: "8.2" }
+    mem_limit: 384m
+    pids_limit: 80
+    volumes:
+      - /srv/odong/sites/ebikeland:/var/www/html
+      - /srv/odong/secrets/ebike-wp-config.php:/var/www/html/wp-config.php:ro
+    networks: [web, database]
+    depends_on:
+      db: { condition: service_healthy }
+    healthcheck:
+      test: [CMD-SHELL, "curl -fsS -H 'Host: ebikeland.id' -H 'X-Forwarded-Proto: https' http://localhost/wp-json/ >/dev/null"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
+  blog:
+    <<: *common
+    image: odong-wordpress:php83
+    build:
+      context: ./wordpress
+      args: { PHP_VERSION: "8.3" }
+    mem_limit: 384m
+    pids_limit: 80
+    volumes:
+      - /srv/odong/sites/blog:/var/www/html
+      - /srv/odong/secrets/blog-wp-config.php:/var/www/html/wp-config.php:ro
+    networks: [web, database]
+    depends_on:
+      db: { condition: service_healthy }
+    healthcheck:
+      test: [CMD-SHELL, "curl -fsS -H 'Host: blog.odongfoundation.org' -H 'X-Forwarded-Proto: https' http://localhost/wp-json/wp/v2/posts?per_page=1 >/dev/null"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
+  db:
+    <<: *common
+    image: mariadb:11.4
+    mem_limit: 384m
+    pids_limit: 100
+    environment:
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db-root
+    command: [--innodb-buffer-pool-size=128M, --max-connections=50, --performance-schema=OFF]
+    volumes:
+      - /srv/odong/database:/var/lib/mysql
+      - /srv/odong/secrets/db-root:/run/secrets/db-root:ro
+    networks: [database]
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  mail:
+    <<: *common
+    image: odong-mail:latest
+    build: { context: ./mail }
+    mem_limit: 128m
+    pids_limit: 60
+    volumes:
+      - /srv/odong/mail:/var/spool/postfix
+    networks: [web]
+networks:
+  web:
+    ipam:
+      config: [{ subnet: 10.89.10.0/24 }]
+  database:
+    internal: true
+    ipam:
+      config: [{ subnet: 10.89.11.0/24 }]

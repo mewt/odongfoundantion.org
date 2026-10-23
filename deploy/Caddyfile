@@ -1,0 +1,26 @@
+{
+  email putri@odongfoundation.org
+  admin localhost:2019
+}
+import /etc/caddy/common
+odongfoundation.org {
+  import security
+  header Strict-Transport-Security "max-age=31536000"
+  reverse_proxy odong:3000
+}
+www.odongfoundation.org {
+  redir https://odongfoundation.org{uri} permanent
+}
+ebikeland.id {
+  import wordpress
+  header Strict-Transport-Security "max-age=31536000"
+  reverse_proxy ebike:80
+}
+www.ebikeland.id {
+  redir https://ebikeland.id{uri} permanent
+}
+blog.odongfoundation.org {
+  import wordpress
+  header Strict-Transport-Security "max-age=31536000"
+  reverse_proxy blog:80
+}

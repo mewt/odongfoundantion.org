@@ -6,7 +6,12 @@ sessions.txt
 
 # Node modules
 node_modules/
-package-lock.json
+/.next/
+/out/
+/*.tsbuildinfo
+/test-results/
+/playwright-report/
+/.npm-cache/
 
 # Large files
 *.zip
@@ -20,6 +25,11 @@ Thumbs.db
 # Environment
 .env
 .env.local
+.env.*
+!.env.example
+*.pem
+*.key
+/deploy/*.env
 
 # Logs
 *.log
@@ -44,6 +54,7 @@ npm-debug.log*
 
 # Documentation files
 *.md
+!content/posts/*.md
 README*
 DOCUMENTATION*
 BLOG_SYSTEM_*
